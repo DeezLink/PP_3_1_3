@@ -11,7 +11,6 @@ import java.util.Optional;
 
 
 @Service
-@Transactional
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
@@ -28,6 +27,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void saveUser(User theUser) {
         userRepository.saveAndFlush(theUser);
     }
@@ -45,6 +45,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void deleteUser(int id) {
         userRepository.deleteById(id);
     }

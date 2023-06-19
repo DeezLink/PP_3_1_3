@@ -26,14 +26,12 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    @Transactional
     public Role getRole(int id) {
         Optional<Role> result = roleRepository.findById(id);
         Role theRole;
         if (result.isPresent()) {
             theRole = result.get();
         } else {
-            // we didn't find the employee
             throw new RuntimeException("Did not find user id - " + id);
         }
         return theRole;
